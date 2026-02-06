@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+const BASE_URL = '/Valentines';
+
 function App() {
   const [currentPage, setCurrentPage] = useState('valentine');
   const [musicPlaying, setMusicPlaying] = useState(false);
-  const [catGif, setCatGif] = useState('/assets/images/valentines.gif');
+  const [catGif, setCatGif] = useState(`${BASE_URL}/images/valentines.gif`);
   const [questionText, setQuestionText] = useState('Do you want to be my VALENTINES??');
   const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 });
   const [yesButtonPosition, setYesButtonPosition] = useState({ x: 0, y: 0 });
@@ -17,9 +19,9 @@ function App() {
   const audioRef = useRef(null);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [playlist, setPlaylist] = useState([
-    { name: 'Davichi - This Love', file: '/assets/music/Davichi - This Love Lyrics (easy lyrics).mp3' },
-    { name: 'Lee Hi - My Love', file: '/assets/music/Lee Hi (이하이)- My Love (내 사랑) (Scarlet Heart Ryeo OST, Part 10) Han Rom Eng lyrics.mp3' },
-    { name: 'Tahanan', file: '/assets/music/Tahanan (Live at The Cozy Cove) - El Manu, Jessy Kang, Jason Marvin.mp3' }
+    { name: 'Davichi - This Love', file: `${BASE_URL}/music/Davichi - This Love Lyrics (easy lyrics).mp3` },
+    { name: 'Lee Hi - My Love', file: `${BASE_URL}/music/Lee Hi (이하이)- My Love (내 사랑) (Scarlet Heart Ryeo OST, Part 10) Han Rom Eng lyrics.mp3` },
+    { name: 'Tahanan', file: `${BASE_URL}/music/Tahanan (Live at The Cozy Cove) - El Manu, Jessy Kang, Jason Marvin.mp3` }
   ]);
   const noTexts = ['Sure ka???', 'Sure na jud???', 'Di na ma usob imong mind???'];
   const noIndex = useRef(0);
@@ -77,7 +79,7 @@ function App() {
   };
 
   const yesClicked = () => {
-    setCatGif('/assets/images/yes.gif');
+    setCatGif(`${BASE_URL}/images/yes.gif`);
     setQuestionText('Wala nay bawiay ha!! Bantay ka!!! hehe 😼💘');
     setShowNoButton(false);
     setYesButtonScale(1); // Reset to normal size
@@ -147,10 +149,10 @@ function App() {
     }
 
     // Change cat gif depending on how many times NO was clicked
-    let gifPath = '/assets/images/no1.gif';
-    if (newCount === 1) gifPath = '/assets/images/no1.gif';
-    else if (newCount === 2) gifPath = '/assets/images/no2.gif';
-    else gifPath = '/assets/images/no3.gif';
+    let gifPath = `${BASE_URL}/images/no1.gif`;
+    if (newCount === 1) gifPath = `${BASE_URL}/images/no1.gif`;
+    else if (newCount === 2) gifPath = `${BASE_URL}/images/no2.gif`;
+    else gifPath = `${BASE_URL}/images/no3.gif`;
 
     setCatGif(gifPath);
     setQuestionText(noTexts[noIndex.current]);
@@ -158,7 +160,7 @@ function App() {
   };
 
   const resetValentinePage = () => {
-    setCatGif('/assets/images/valentines.gif');
+    setCatGif(`${BASE_URL}/images/valentines.gif`);
     setQuestionText('Do you want to be my VALENTINES??');
     setShowNoButton(true);
     setYesButtonScale(1);
@@ -315,10 +317,10 @@ function App() {
               </button>
 
               {/* four cute GIFs around the button - responsive sizing and positioning */}
-              <img src="/assets/images/cat.gif" alt="gif1" className="absolute w-20 h-20 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-xl shadow-xl top-2 left-2 sm:-top-6 sm:-left-10" />
-              <img src="/assets/images/cat2.gif" alt="gif2" className="absolute w-24 h-24 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-xl shadow-xl top-0 right-2 sm:-top-8 sm:-right-12" />
-              <img src="/assets/images/cat3.gif" alt="gif3" className="absolute w-20 h-20 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-xl shadow-xl bottom-2 left-2 sm:-bottom-8 sm:-left-16" />
-              <img src="/assets/images/cat4.gif" alt="gif4" className="absolute w-24 h-24 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-xl shadow-xl bottom-0 right-2 sm:-bottom-8 sm:-right-8" />
+              <img src={`${BASE_URL}/images/cat.gif`} alt="gif1" className="absolute w-20 h-20 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-xl shadow-xl top-2 left-2 sm:-top-6 sm:-left-10" />
+              <img src={`${BASE_URL}/images/cat2.gif`} alt="gif2" className="absolute w-24 h-24 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-xl shadow-xl top-0 right-2 sm:-top-8 sm:-right-12" />
+              <img src={`${BASE_URL}/images/cat3.gif`} alt="gif3" className="absolute w-20 h-20 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-xl shadow-xl bottom-2 left-2 sm:-bottom-8 sm:-left-16" />
+              <img src={`${BASE_URL}/images/cat4.gif`} alt="gif4" className="absolute w-24 h-24 sm:w-44 sm:h-44 md:w-56 md:h-56 rounded-xl shadow-xl bottom-0 right-2 sm:-bottom-8 sm:-right-8" />
             </div>
           </div>
         </div>
