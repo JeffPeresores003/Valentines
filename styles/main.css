@@ -1,0 +1,67 @@
+/* Main Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Button Containers - Fixed Positions */
+.yes-button-container {
+  position: fixed;
+  left: 10%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
+
+.no-button-container {
+  position: fixed;
+  right: 10%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  z-index: 20;
+}
+
+@media (max-width: 768px) {
+  .yes-button-container {
+    left: 20%;
+  }
+  .no-button-container {
+    right: 20%;
+  }
+}
+
+/* Music Player Styles */
+.music-player {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Animations */
+.animate-grow {
+  transition: transform 0.3s ease-in-out;
+}
+
+.page-fade {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide class */
+.hidden {
+  display: none !important;
+}
